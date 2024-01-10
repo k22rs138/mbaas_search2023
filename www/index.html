@@ -68,6 +68,24 @@
                 })
         }
 
+        function searchAttackLT() {
+            let TestDataClass = ncmb.DataStore(db);
+            let attack = parseInt($("#attack").val());
+            TestDataClass.lessThan("attack", attack).fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
+
+        function searchAttackGT() {
+            let TestDataClass = ncmb.DataStore(db);
+            let attack = parseInt($("#attack").val());
+            TestDataClass.greaterThan("attack", attack).fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
+
         function countData() {
             UTdata.count().fetchAll()
             
@@ -126,7 +144,9 @@
         <button class="btn" onclick="searchLevelLT()">Level &lt;</button>
         <button class="btn" onclick="searchLevel()">Level</button>
         <button class="btn" onclick="searchLevelGT()">Level &gt;</button>
+        <button class="btn" onclick="searchAttackLT()">Attack &lt;</button>
         <button class="btn" onclick="searchAttack()">Attack</button>
+        <button class="btn" onclick="searchAttackGT()">Attack &gt;</button>
         
     </div>
     <div id="message">message area</div>
